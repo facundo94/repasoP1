@@ -10,6 +10,6 @@ $producto = new Producto($nombreProducto, $precioProducto);
 $im = imagecreatefrompng($_FILES["imagen"]["tmp_name"]);
 imagepng($im , "img/$nombreProducto.png"); 
 
-echo "Procuto cargado con exito!";
+echo "Producto cargado con exito!";
 
 ?>

@@ -22,16 +22,12 @@ if(isset($_POST["nombre"])){
             unset($listaProducto[$productoBorrado]);
 
             $origen = "img/$nombre.png";
-            $destino = 'imagenesBorradas/';
-            copy($origen, $destino."$nombre.png");
+            $destino = 'imagenesBorradas/'.$nombre."".date("d m Y").".png";
+            copy($origen, $destino);
             unlink("img/$nombre.png");
             break;
         }
     }
-
-    
-
-    
 
 }else if(isset($_GET["nombre"])){
     $nombre = $_GET["nombre"];

@@ -4,4 +4,29 @@
 archivo CLientes/clientesActuales.txt
 otro archivo, Validarcliennte.php recibe por post correo y clave. SI coincide se crea un objeto*/
 
+include "Cliente.php";
+
+$nombre = $_GET["nombre"];
+$mail = $_GET["mail"];
+$clave = $_GET["clave"];
+$sexo = $_GET["sexo"];
+
+$cliente = new Cliente($nombre, $mail, $clave, $sexo);
+
+$nombre_archivo = "clientesActuales.txt";
+
+if($archivo = fopen("Clientes/".$nombre_archivo, "a"))
+{
+    if(fwrite($archivo, $cliente->ToString(). "\n"))
+    {
+        echo "Se ha ejecutado correctamente";
+    }
+    else
+    {
+        echo "Ha habido un problema al crear el archivo";
+    }
+
+    fclose($archivo);
+}
+
 ?>
